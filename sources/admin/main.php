@@ -1,6 +1,6 @@
 <?php
 if (basename($_SERVER['PHP_SELF']) == 'main.php') {
-    die('403 - Access Forbidden');
+    exit('403 - Access Forbidden');
 }
 if (isset($_SESSION['id']) && isset($_SESSION['admin'])) {
     if (empty($admin)) {
@@ -20,7 +20,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['admin'])) {
                 $current_tags = file_get_contents('https://api.github.com/repos/greenelfx/maplebit/tags', false, $context);
                 if ($current_tags) {
                     $tags = json_decode($current_tags);
-                    $ref_tag = 'v1.3';
+                    $ref_tag = 'v1.31';
                     $current_tag = $tags[0]->name;
                     if ($current_tag == $ref_tag) {
                         $alert_class = 'success';
